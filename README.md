@@ -26,7 +26,7 @@ pip install colorama
 
 ```bash
 # 下载并添加执行权限
-chmod +x ast_diff_analyzer.py
+chmod +x ast_code_diff.py
 ```
 
 ## 🚀 使用方法
@@ -35,32 +35,32 @@ chmod +x ast_diff_analyzer.py
 
 ```bash
 # 分析当前工作区的改动
-./ast_diff_analyzer.py
+python ast_code_diff.py
 
 # 比较两个提交
-./ast_diff_analyzer.py HEAD~1 HEAD
+python ast_code_diff.py HEAD~1 HEAD
 
 # 比较两个分支
-./ast_diff_analyzer.py main feature-branch
+python ast_code_diff.py main feature-branch
 
 # 详细模式（显示更多改动）
-./ast_diff_analyzer.py -v
+python ast_code_diff.py -v
 
 # 显示统计信息
-./ast_diff_analyzer.py -s
+python ast_code_diff.py -s
 
 # 组合使用
-./ast_diff_analyzer.py -v -s HEAD~5 HEAD
+python ast_code_diff.py -v -s HEAD~5 HEAD
 ```
 
 ### 指定仓库路径
 
 ```bash
 # 分析其他仓库
-./ast_diff_analyzer.py --repo /path/to/your/repo
+python ast_code_diff.py --repo /path/to/your/repo
 
 # 分析其他仓库的特定提交
-./ast_diff_analyzer.py --repo /path/to/repo HEAD~1 HEAD
+python ast_code_diff.py --repo /path/to/repo HEAD~1 HEAD
 ```
 
 ### 命令行选项
@@ -200,7 +200,7 @@ pip install colorama
 确保在 Git 仓库中运行，或使用 `--repo` 参数指定路径：
 
 ```bash
-./ast_diff_analyzer.py --repo /path/to/your/repo
+python ast_code_diff.py --repo /path/to/your/repo
 ```
 
 ### 问题：语法错误
@@ -213,31 +213,31 @@ pip install colorama
 
 ```bash
 # 查看 PR 改动影响了哪些函数
-./ast_diff_analyzer.py origin/main HEAD
+python ast_code_diff.py origin/main HEAD
 
 # 查看改动最多的部分
-./ast_diff_analyzer.py -s origin/main HEAD
+python ast_code_diff.py -s origin/main HEAD
 ```
 
 ### 2. 重构分析
 
 ```bash
 # 详细查看重构前后的变化
-./ast_diff_analyzer.py -v before-refactor after-refactor
+python ast_code_diff.py -v before-refactor after-refactor
 ```
 
 ### 3. 发布前检查
 
 ```bash
 # 查看即将发布的改动
-./ast_diff_analyzer.py -s v1.0.0 HEAD
+python ast_code_diff.py -s v1.0.0 HEAD
 ```
 
 ### 4. Bug 定位
 
 ```bash
 # 查看最近改动了哪些函数
-./ast_diff_analyzer.py HEAD~10 HEAD
+python ast_code_diff.py HEAD~10 HEAD
 ```
 
 ## 🔄 与其他工具集成
@@ -248,8 +248,8 @@ pip install colorama
 
 ```ini
 [alias]
-    diff-ast = "!python /path/to/ast_diff_analyzer.py"
-    diff-stats = "!python /path/to/ast_diff_analyzer.py -s"
+    diff-ast = "!python /path/to/ast_code_diff.py"
+    diff-stats = "!python /path/to/ast_code_diff.py -s"
 ```
 
 使用:
@@ -265,7 +265,7 @@ git diff-stats main feature-branch
 
 ```bash
 #!/bin/bash
-python /path/to/ast_diff_analyzer.py
+python /path/to/ast_code_diff.py
 ```
 
 ### CI/CD 集成
@@ -275,7 +275,7 @@ python /path/to/ast_diff_analyzer.py
 ```yaml
 - name: Analyze code changes
   run: |
-    python ast_diff_analyzer.py origin/main HEAD > diff_analysis.txt
+    python ast_code_diff.py origin/main HEAD > diff_analysis.txt
     cat diff_analysis.txt
 ```
 

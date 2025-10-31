@@ -32,6 +32,7 @@ public class UserService {
     private static class User {
         private String name;
         private String email;
+        private boolean active;
 
         public User(String name, String email) {
             this.name = name;
@@ -40,6 +41,14 @@ public class UserService {
 
         public String getEmail() {
             return email;
+        }
+
+        public void setActive(boolean active) {
+            this.active = active;
+        }
+
+        public boolean isActive() {
+            return active;
         }
     }
 }
